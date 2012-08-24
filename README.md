@@ -12,5 +12,6 @@ convert conditionally-styled SVG to raster map tiles.
 ###requirements
 needs pycairo (`easy_install pycairo`) and the python bindings for librsvg (`sudo apt-get install python-rsvg`).
 
-###notes
-this code was hacked together at 3am by someone who has never done image manipulation in python.
+###todo
+* render only a specified extent of the SVG
+* some way to tie geojson, svg, and this script together without so much work on the part of the user
