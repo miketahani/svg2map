@@ -11,7 +11,7 @@ import os
 import tilenames
 
 SVG_INFILE = sys.argv[-1]   # i know...
-LAT_START, LNG_START = (37.7750, -122.4183) # NE corner lat/lng of your svg layer
+LAT_START, LNG_START = (37.7750, -122.4183) # NW corner lat/lng of your svg layer
 ZOOM_MIN, ZOOM_MAX = (11,12)
 
 print "[*] reading svg", SVG_INFILE, ":",

@@ -5,7 +5,7 @@ convert conditionally-styled SVG to raster map tiles.
 * rip SVG layer out of the frontend 
 * strip out anything you don't want
 * add XML headers to the SVG data, save as a .svg
-* get the lat/lng coordinate pair of the NE corner of your SVG bounding box
+* get the lat/lng coordinate pair of the NW corner of your SVG bounding box
 * modify the script to fit your data
 * run script, get tiles 
 
