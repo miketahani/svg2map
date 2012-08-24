@@ -9,10 +9,9 @@ import sys
 import math
 import os
 import tilenames
-import argparse
 
 SVG_INFILE = sys.argv[-1]   # i know...
-LAT_START, LNG_START = (37.7750, -122.4183) # top-left lat/lng of your svg layer
+LAT_START, LNG_START = (37.7750, -122.4183) # NE corner lat/lng of your svg layer
 ZOOM_MIN, ZOOM_MAX = (11,12)
 
 print "[*] reading svg", SVG_INFILE, ":",
@@ -27,7 +26,6 @@ print src.width, "x", src.height
 - Filename(url) format is /zoom/x/y.png
 """
 tile_width, tile_height = (256, 256)
-#images = [] # for creating a flat html page with all the images
 scale_level = None
 
 for zoom in xrange(ZOOM_MIN, ZOOM_MAX+1):
@@ -65,8 +63,8 @@ for zoom in xrange(ZOOM_MIN, ZOOM_MAX+1):
     #x,y = tilenames.tileXY(LAT_START, LNG_START, zoom)
     #column_start = x
     #row_start = x
-    column_start = 0 # column_start = x
-    row_start = 0    # row_start = y
+    column_start = 0
+    row_start = 0
 
     for column in xrange(tiles_x):
 
@@ -94,11 +92,4 @@ for zoom in xrange(ZOOM_MIN, ZOOM_MAX+1):
             tile.write_to_png(tile_filename)
             print "[*] wrote %s" % tile_filename
 
-#             # debugging:
-#             html_img = "<img src=\"%s\" alt=\"%s\" />" % (tile_filename, tile_filename)
-#             images.append(html_img)
-
-# # debugging:
-# with open("debug.html","w") as debug_outfile:
-#     debug_outfile.write("<br />".join(images))
 print "done"
