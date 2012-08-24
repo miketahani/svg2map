@@ -62,7 +62,7 @@ for zoom in xrange(ZOOM_MIN, ZOOM_MAX+1):
     # need to calculate lat/lng + zoom -> row, col, and add those to the incrementors
     #x,y = tilenames.tileXY(LAT_START, LNG_START, zoom)
     #column_start = x
-    #row_start = x
+    #row_start = y
     column_start = 0
     row_start = 0
 
