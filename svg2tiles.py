@@ -39,7 +39,7 @@ for zoom in xrange(ZOOM_MIN, ZOOM_MAX+1):
 
     # write the svg to a surface
     print "[*] creating cairo surface",
-    img = cairo.ImageSurface(cairo.FORMAT_ARGB32, int(zoomed_width), int(zoomed_height))
+    img = cairo.ImageSurface(cairo.FORMAT_ARGB32, math.ceil(zoomed_width), math.ceil(zoomed_height))
     ctx = cairo.Context(img)
     # scale the SVG
     ctx.scale(scale_level, scale_level)
