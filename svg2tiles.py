@@ -11,7 +11,7 @@ import os
 import tilenames
 
 SVG_INFILE = sys.argv[-1]   # i know...
-LAT_START, LNG_START = (37.7750, -122.4183) # NW corner lat/lng of your svg layer
+LAT_START, LNG_START = (48.806863, -124.628906) # NW corner lat/lng of your svg layer
 ZOOM_MIN, ZOOM_MAX = (11,12)
 
 print "[*] reading svg", SVG_INFILE, ":",
@@ -34,12 +34,12 @@ for zoom in xrange(ZOOM_MIN, ZOOM_MAX+1):
     else:
         scale_level *= 2.0
 
-    zoomed_width = src.width * scale_level
-    zoomed_height = src.height * scale_level
+    zoomed_width = int(math.ceil(src.width * scale_level))
+    zoomed_height = int(math.ceil(src.height * scale_level))
 
     # write the svg to a surface
     print "[*] creating cairo surface",
-    img = cairo.ImageSurface(cairo.FORMAT_ARGB32, math.ceil(zoomed_width), math.ceil(zoomed_height))
+    img = cairo.ImageSurface(cairo.FORMAT_ARGB32, zoomed_width, zoomed_height)
     ctx = cairo.Context(img)
     # scale the SVG
     ctx.scale(scale_level, scale_level)
@@ -60,11 +60,11 @@ for zoom in xrange(ZOOM_MIN, ZOOM_MAX+1):
         os.makedirs(zoom_dir)
 
     # need to calculate lat/lng + zoom -> row, col, and add those to the incrementors
+    # uncomment the following two lines to enable this functionality (broken):
     #x,y = tilenames.tileXY(LAT_START, LNG_START, zoom)
-    #column_start = x
-    #row_start = y
-    column_start = 0
-    row_start = 0
+    #column_start, row_start = (x,y)
+    # comment this line if the above two are uncommented:
+    column_start, row_start = (0,0)
 
     for column in xrange(tiles_x):
 
