@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-	<html>
-		<head>
-			<title>Example</title>
-			<style>
-				.compass path {
-					stroke: #fff;
-				}
-			</style>
+    <html>
+        <head>
+            <title>Example</title>
+            <style>
+                .compass path {
+                    stroke: #fff;
+                }
+            </style>
 
-			<script src="polymaps.js"></script>
-		</head>
+            <script src="polymaps.js"></script>
+        </head>
 
-		<body>
+        <body>
 
-			<div id="map"></div>
+            <div id="map"></div>
 
-			<script>
-				var po = org.polymaps;
+            <script>
+                var po = org.polymaps;
 
-				var map = po.map()
-				    .container(document.getElementById("map").appendChild(po.svg("svg")))
-				    .add(po.interact())
-				    .add(po.hash());
+                var map = po.map()
+                    .container(document.getElementById("map").appendChild(po.svg("svg")))
+                    .add(po.interact())
+                    .add(po.hash());
 
-				map.add(po.image()
-				    .url(po.url("http://localhost:8080"
-				    + "/output/{Z}/{X}/{Y}.png")));
+                map.add(po.image()
+                    .url(po.url("http://localhost:8080"
+                    + "/output/{Z}/{X}/{Y}.png")));
 
-				map.add(po.compass()
-				    .pan("none"));
-			</script>
+                map.add(po.compass()
+                    .pan("none"));
+            </script>
 
-	</body>
+    </body>
 </html>
